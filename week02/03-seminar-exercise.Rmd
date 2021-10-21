@@ -9,12 +9,12 @@ You will use the `tidyverse` package and the dataset called `ip_and_unemployment
 
 ```{r setup}
 # load in libraries:
-suppressMessages(library(_________))
+suppressMessages(library(tidyverse))
 # or just library(____________)
 
 # read ip_and_unemployment.csv
-ip_and_unemployment <- _________________
-head(______)
+ip_and_unemployment <- read.csv('ip_and_unemployment.csv')
+head(ip_and_unemployment)
 
 ```
     
@@ -25,22 +25,22 @@ What are the highest unemployment rates for France and Spain during the time of 
 
 # data processing
 ipu_clean <- ip_and_unemployment %>%
-  pivot_____(id_cols = c(_____, _____), 
-              names_from = ______, values_from = ______)  # long to wide
+  pivot_wider(id_cols = c(country, date), 
+              names_from = series, values_from = value)  # long to wide
 
 # France
 ipu_clean %>%
-  filter(country == _____) %>%
-  _____(unemployment == max(_______, na.rm = TRUE) | 
+  filter(country == "france") %>%
+  filter(unemployment == max(unemployment, na.rm = TRUE) | 
            ip == min(ip, na.rm = TRUE)) 
     # need to add na.rm = TRUE, because ip contains NA and min() will return NA
     # if there is one NA, unless na.rm = TRUE
 
 # Spain
 ipu_clean %>%
-  _____(_____ == _____) %>%
-  filter(unemployment == ________________________  | 
-           __ == ____________________)
+  filter(country == "spain") %>%
+  filter(unemployment == min(unemployment, na.rm = TRUE) | 
+           ip == min(ip, na.rm = TRUE))
 
 # Optional --------------------------------------------------------------------
 filter_worst_months <- function(x) {
@@ -63,9 +63,9 @@ How many non-NA monthly observations of industrial production exist for the coun
 # Q2 --------------------------------------------------------------------------
 # Non-NA group_by and summarise
 ipu_clean %>%
-  _______(country) %>%
-  __________(nonNA_ip = sum(!is.na(__)),
-            nonNA_ue = sum(_________________))
+  group_by(country) %>%
+  summarise(nonNA_ip = sum(!is.na(ip)),
+            nonNA_ue = sum(unemployment))
 
 # Optional --------------------------------------------------------------------
 ipu_clean %>%
