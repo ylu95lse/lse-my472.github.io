@@ -15,7 +15,7 @@ library("stringi")
 library("xml2")
 ```
 
-In this example, we will scrape an RSS feed and some articles from the [The Guardian](www.theguardian.com). Combining the techniques we have covered in the course so far, the goal is to produce a dataset in which one line represents an article.
+In this example, we will scrape an RSS feed and some articles from the [The Guardian](www.theguardian.com). Combining the techniques we have covered in the course so far, 
 
 You can read through the [Guardian's RSS documentation](https://www.theguardian.com/help/feeds). As you can see, RSS is provided for each of the news category and the url is always https://www.theguardian.com/####/rss. You can even find some sub category of a specific news category. For instance, the following works: [https://www.theguardian.com/world/japan/rss](https://www.theguardian.com/world/japan/rss). As an example, let us look at the Brexit RSS feed:
 

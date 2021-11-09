@@ -45,7 +45,7 @@ ipu_clean %>%
 # Optional --------------------------------------------------------------------
 filter_worst_months <- function(x) {
   filtered <- ipu_clean %>%
-    _____(country == x) %>%ddhgkfffkfug
+    _____(country == x) %>%
     _____(____________ == ________________________ | 
              ip == ________________________)
   return(_______)
@@ -65,7 +65,7 @@ How many non-NA monthly observations of industrial production exist for the coun
 ipu_clean %>%
   group_by(country) %>%
   summarise(nonNA_ip = sum(!is.na(ip)),
-            nonNA_ue = sum(!is.na(unemployment)))
+            nonNA_ue = sum(unemployment))
 
 # Optional --------------------------------------------------------------------
 ipu_clean %>%
@@ -92,9 +92,9 @@ In data science and machine learning, it can sometimes increase the predictive p
 # Q3 --------------------------------------------------------------------------
 # Data transformations with mutate
 ipu_clean %>%
-  mutate(ip_sq = ip^2,
-         ue_log = log(unemployment),
-         ip_unemployment = ip*unemployment) %>%
+  _______(ip_sq = _______,
+         ________________ = _______________,
+         ip_unemployment = ___________________) %>%
   head()
 
 # Optional --------------------------------------------------------------------

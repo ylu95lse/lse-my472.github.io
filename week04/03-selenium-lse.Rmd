@@ -20,7 +20,7 @@ library("tidyverse")
 Launching the driver and browser (if the port is already in use, choose a different number with four digits, e.g. `rsDriver(browser=c("firefox"), port = 1234L)`:
 
 ```{r}
-rD<- rsDriver(browser=c("firefox"))
+rD<- rsDriver(browser=c("firefox"), port = 5678L)
 driver <- rD$client
 ```
 
@@ -44,7 +44,7 @@ selector_list$go_button <- "/html/body/form/main/div/div/div/div[1]/div/div[1]/i
 selector_list$results_progress_box <- "/html/body/form/main/div/div/div/div[2]/div[2]/p"
 
 # Class name
-selector_list$next_page_button <- "pagination__link--next"
+selector_list$next_page_button <- "pagination__link--next" 
 ```
 
 Next, we want to build a helper function which later on e.g. allows us to know whether we are on the last page of a given search. For this we scrape the container which summarises the results on the current page:

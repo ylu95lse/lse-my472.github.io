@@ -108,7 +108,7 @@ Now that we know what we're looking for, let's use `html_nodes()` to identify al
 
 
 ```{r}
-tables_raw <- html_nodes(html, css = "tba")
+tables_raw <- html_nodes(html, css = "table. wikitable:nth-child(20)")
 length(tables_raw)
 ```
 
@@ -152,6 +152,8 @@ p <- ggplot(data_pop, aes(x=rank, y=population, label=city_name)) +
   theme_minimal()
 p
 ```
+
+
 
 These power laws (https://en.wikipedia.org/wiki/Power_law) are thereby incredibly general. For example, have a look how the first 10 million words in 30 Wikipedias (dumps from October 2015): https://en.wikipedia.org/wiki/Zipf%27s_law#/media/File:Zipf_30wiki_en_labels.png
 
