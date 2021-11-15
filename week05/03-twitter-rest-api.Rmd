@@ -40,7 +40,7 @@ Lastly, if the cell below outputs `LSEnews` after running, we are good to go:
 
 ```{r}
 # Replace the app name with your own!
-twitter_token <- create_token(app = "enter your app name here", 
+twitter_token <- create_token(app = "Miss Lu", 
                               consumer_key = authentication$consumer_key,
                               consumer_secret = authentication$consumer_secret,
                               access_token = authentication$access_token,

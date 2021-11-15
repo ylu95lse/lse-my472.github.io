@@ -34,7 +34,7 @@ exemplary_corpus <- corpus(exemplary_documents,
                            )
 ```
 
-This corpus consists of three documents and two docvars:
+This corpus consists of three documents and two docvars:# docvas这里是什么意思？下面2 docvas是怎么来的？
 
 ```{r}
 exemplary_corpus
@@ -44,6 +44,7 @@ We can access the docvars data frame with:
 
 ```{r}
 docvars(exemplary_corpus)
+# 下面character的数字是怎么来的？
 ```
 
 #### 2. Dictionary methods
@@ -51,7 +52,8 @@ docvars(exemplary_corpus)
 Now let us look at a real world example, some inaugural addresses of US presidents since George Washington. These texts are part of the quanteda package and the `data_corpus_inaugural` corpus object exists as soon as you have loaded the package. It contains 58 speeches and 4 docvars.
 
 ```{r}
-data_corpus_inaugural
+#不理解
+data_corpus_inaugural 
 ```
 
 ```{r}
@@ -77,7 +79,7 @@ dfmplain
 ```
 
 
-We can now apply dictionary methods to these data. For this we first create a dictionary object from a simple named list. Note that this list could also e.g. contain two character vectors for words associated with positive and negative sentiments.
+We can now apply dictionary methods to these data. For this we first create a dictionary object from a simple named list. Note that this list could also e.g. contain two character vectors for words associated with positive and negative sentiments.# 还是不懂positive and negative在这里的意思
 
 ```{r}
 short_dictionary <- dictionary(list(taxation = c("tax", "taxes", "taxation"),
