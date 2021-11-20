@@ -50,7 +50,7 @@ p + geom_histogram() + scale_x_log10(breaks = c(1, 10, 100, 1000))
 p + geom_histogram() + scale_x_log10(breaks = c(1, 10, 100, 1000, 10000),
     labels=c(1, 10, 100, "1K", "10K"))
 
-# Changing axis breaks and labels (categorical variables)
+# Changing axis breaks and labels (categorical variables) 离散变量
 p <- ggplot(df, aes(x=party))
 p + geom_bar() + scale_x_discrete(labels=c("D", "I", "R"))
 
@@ -84,7 +84,7 @@ p <- ggplot(df, aes(x = likes_count, y = comments_count)) +
 
 p + geom_point(color = "red")
 p + geom_point(shape = 15)
-p + geom_point(size = 1)
+p + geom_point(size = 1)# size是线宽
 
 # for a complete list for each geom, type ?geom_point, ?geom_line, ...
 ```

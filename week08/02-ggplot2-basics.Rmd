@@ -65,6 +65,8 @@ p <- ggplot(counts, aes(x = month,
                         y = posts, group = party))
 p + geom_line(aes(color = party)) +
   scale_color_manual(values=c("blue", "red"))
+
+
 ```
 
 
@@ -88,7 +90,7 @@ p + geom_density() + scale_x_log10("likes count", labels = comma)
 # Why does this line of code drops some observations?
 ```
 
-## Univariate analysis for a single categorical variable
+## Univariate analysis for a single categorical variable 分类变量
 
 ```{r}
 p <- ggplot(df, aes(x=post_type)) + xlab("post type")
@@ -105,13 +107,13 @@ p + geom_bar() + coord_flip()
 
 ```{r}
 # Base layer
-p <- ggplot(df, aes(x = likes_count, y = comments_count)) + xlab("Likes count") +
-  ylab("Comments count")
+p <- ggplot(df, aes(x = likes_count, y = comments_count)) + xlab("Likes count") x轴标题+
+  ylab("Comments count")y轴标题
 
 # Scatter plot: Relationship between number of likes and number of comments
 p + geom_point()  
 
-# With smoothed conditional means
+# With smoothed conditional means 平滑趋势线
 p + geom_point() + stat_smooth(na.rm = TRUE) 
 
 # With restricted axes
@@ -135,11 +137,11 @@ p <- ggplot(df, aes(x = post_type, y = likes_count)) + xlab("Post type") +
   ylab("Likes count")
 p + geom_boxplot()
 
-# Box plot and violin plot with log scale
+# Box plot and violin plot with log scale 箱体图和小提琴图
 p + geom_boxplot() + scale_y_log10(labels = comma)
 p + geom_violin() + scale_y_log10(labels = comma)
 
-# Density plot for log like distributions for different parties
+# Density plot for log like distributions for different parties 密度图
 p <- ggplot(df, aes(x = likes_count))
 p + geom_density(aes(color = party)) + scale_x_log10("likes count", labels = comma)
 ```
@@ -154,12 +156,12 @@ counts <- df %>%
   summarise(posts = n())
 
 p <- ggplot(counts, aes(x = party, y = post_type)) + ylab("post type")
-p + geom_tile(aes(fill = posts))
+p + geom_tile(aes(fill = posts)) 最右边的图例
 
 ```
 
 
-## Multivariate analysis for three continuous variables
+## Multivariate analysis for three continuous variables 多变量
 
 ```{r}
 p <- ggplot(df, aes(x = likes_count, y = comments_count, color = log(angry_count))) +
@@ -168,7 +170,7 @@ p <- ggplot(df, aes(x = likes_count, y = comments_count, color = log(angry_count
 p + geom_point()
 
 p + geom_point() + scale_y_log10(labels = comma) + scale_x_log10(labels = comma) + 
- stat_smooth(method = "lm")
+ stat_smooth(method = "lm") 线性回归
 ```
 
 
@@ -216,7 +218,7 @@ Jittering points can avoid "overplotting", however, can also easily be misleadin
 p <- ggplot(df, aes(x = party, y = comments_count)) + ylab("comments count")
 p + geom_point()
 
-# vs
+# vs 重叠的点去掉，用“jitter”
 p + geom_jitter(position = position_jitter(width = .1, height=.1))
 ```
 

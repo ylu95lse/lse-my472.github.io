@@ -17,7 +17,7 @@ library("tidyverse")
 Specify the directory where the txt file is stored:
 
 ```{r}
-current_dir <- "tba"
+current_dir <- "/Users/luyunjiao/Desktop/MY472 Data for data scientist/W7/"
 ```
 
 Load the txt file into a character vector with `read_file`:
